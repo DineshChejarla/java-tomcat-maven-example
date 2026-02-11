@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'JAVA_HOME'
-        maven 'M2_HOME'
-    }
-
     options {
         timestamps()
     }
@@ -20,7 +15,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                sh '/usr/share/maven/bin/mvn clean install'
             }
             post {
                 success {
@@ -56,14 +51,6 @@ pipeline {
         stage('Deploy to PROD') {
             steps {
                 echo 'Deploying to PRODUCTION Environment...'
-            }
-            post {
-                success {
-                    echo 'Production Deployment Successful'
-                }
-                failure {
-                    echo 'Production Deployment Failed'
-                }
             }
         }
     }
