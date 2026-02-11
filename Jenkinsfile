@@ -36,14 +36,12 @@ pipeline {
         stage('Deploy to DEV') {
             steps {
                 echo 'Deploying to DEV Environment...'
-                // Add your DEV deployment commands here
             }
         }
 
         stage('Deploy to QA') {
             steps {
                 echo 'Deploying to QA Environment...'
-                // Add your QA deployment commands here
             }
         }
 
@@ -58,7 +56,6 @@ pipeline {
         stage('Deploy to PROD') {
             steps {
                 echo 'Deploying to PRODUCTION Environment...'
-                // Add your PROD deployment commands here
             }
             post {
                 success {
@@ -73,4 +70,7 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline Execution Complete
+            echo 'Pipeline Execution Completed'
+        }
+    }
+}
